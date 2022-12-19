@@ -245,7 +245,8 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
     return wget.actions.ABORT
   end
 
-  if string.match(url, "^https?://uploadir%.com/uploads/[0-9a-zA-Z]+$") then
+  if status_code == 200
+    and string.match(url["url"], "^https?://uploadir%.com/uploads/[0-9a-zA-Z]+$") then
     main_download = true
   end
 
