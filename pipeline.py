@@ -58,7 +58,7 @@ if not WGET_AT:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20221218.01'
+VERSION = '20221219.01'
 USER_AGENT = 'Archive Team'
 TRACKER_ID = 'uploadir'
 TRACKER_HOST = 'legacy-api.arpa.li'
@@ -243,7 +243,7 @@ project = Project(
 pipeline = Pipeline(
     CheckIP(),
     GetItemFromTracker('http://{}/{}/multi={}/'
-        .format(TRACKER_HOST, 'arkivertest2', MULTI_ITEM_SIZE),
+        .format(TRACKER_HOST, TRACKER_ID, MULTI_ITEM_SIZE),
         downloader, VERSION),
     PrepareDirectories(warc_prefix=TRACKER_ID),
     WgetDownload(
